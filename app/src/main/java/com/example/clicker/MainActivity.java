@@ -45,5 +45,6 @@ public class MainActivity extends AppCompatActivity {
                 counter.setText("Click : "+ c);
             }
         });
+
     }
 }
