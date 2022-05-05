@@ -3,6 +3,7 @@ package com.example.clicker;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -15,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     int c = 0;
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint({"SetTextI18n", "DefaultLocale"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,12 +34,16 @@ public class MainActivity extends AppCompatActivity {
             }
             c++;
             if(c == 41){
-                time.setText("Time : "+ (System.currentTimeMillis() - start[0]));
+                time.setText("Time : "+ String.format("%.3f",(float)(System.currentTimeMillis() -  start[0])/1000) + " c");
                 c=0;
                 start[0] = System.currentTimeMillis();
             }
             counter.setText("Click : "+ c);
         });
-
+        settings.setOnClickListener(view -> {
+            Intent intent;
+            intent = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(intent);
+        });
     }
 }

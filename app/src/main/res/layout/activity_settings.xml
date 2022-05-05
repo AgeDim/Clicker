@@ -22,8 +22,7 @@
     <ImageButton
         android:id="@+id/bigRight"
         android:layout_width="176dp"
-        android:layout_height="332dp"
-        android:layout_marginBottom="60dp"
+        android:layout_height="350dp"
         android:contentDescription="@string/todo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,7 +31,7 @@
     <ImageButton
         android:id="@+id/smallRight"
         android:layout_width="176dp"
-        android:layout_height="322dp"
+        android:layout_height="350dp"
         android:layout_marginTop="30dp"
         android:contentDescription="@string/todo"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,34 +41,20 @@
     <ImageButton
         android:id="@+id/bigLeft"
         android:layout_width="176dp"
-        android:layout_height="332dp"
-        android:layout_marginBottom="60dp"
+        android:layout_height="350dp"
+        android:contentDescription="@string/todo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints,SpeakableTextPresentCheck,TouchTargetSizeCheck,ImageContrastCheck"
-        android:contentDescription="@string/todo" />
+        tools:ignore="MissingConstraints,SpeakableTextPresentCheck,TouchTargetSizeCheck,ImageContrastCheck" />
 
     <ImageButton
         android:id="@+id/smallLeft"
         android:layout_width="176dp"
-        android:layout_height="322dp"
+        android:layout_height="350dp"
         android:layout_marginTop="30dp"
+        android:contentDescription="@string/todo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints,SpeakableTextPresentCheck,TouchTargetSizeCheck,DuplicateClickableBoundsCheck,ImageContrastCheck"
-        android:contentDescription="@string/todo" />
-
-    <ImageButton
-        android:id="@+id/back"
-        android:layout_width="57dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="170dp"
-        android:layout_marginEnd="170dp"
-        android:background="@drawable/back"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints,SpeakableTextPresentCheck,TouchTargetSizeCheck"
-        android:contentDescription="@string/todo" />
+        tools:ignore="MissingConstraints,SpeakableTextPresentCheck,TouchTargetSizeCheck,DuplicateClickableBoundsCheck,ImageContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
