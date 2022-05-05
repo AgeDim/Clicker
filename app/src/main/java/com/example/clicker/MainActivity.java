@@ -12,7 +12,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     TextView time, counter;
     ImageButton settings;
-    Button click;
+    Button click, startBtn;
 
     int c = 0;
 
@@ -26,19 +26,29 @@ public class MainActivity extends AppCompatActivity {
         counter = findViewById(R.id.counter);
         settings = findViewById(R.id.settings);
         click = findViewById(R.id.click);
+        startBtn = findViewById(R.id.start);
         final long[] start = new long[1];
-        click.setEnabled(true);
+        startBtn.setEnabled(true);
+        click.setEnabled(false);
+        startBtn.setOnClickListener(view -> {
+            startBtn.setEnabled(false);
+            click.setEnabled(true);
+            time.setText("Time : 0 c");
+        });
         click.setOnClickListener(view -> {
-            if(c == 0){
+            if(c == 1){
                 start[0] = System.currentTimeMillis();
             }
-            c++;
-            if(c == 41){
+
+            if(c == 40){
                 time.setText("Time : "+ String.format("%.3f",(float)(System.currentTimeMillis() -  start[0])/1000) + " c");
                 c=0;
                 start[0] = System.currentTimeMillis();
+                startBtn.setEnabled(true);
+                click.setEnabled(false);
             }
             counter.setText("Click : "+ c);
+            c++;
         });
         settings.setOnClickListener(view -> {
             Intent intent;

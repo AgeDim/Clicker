@@ -2,8 +2,9 @@
     <string name="app_name">Clicker</string>
     <string name="time">Time</string>
     <string name="todo">TODO</string>
-    <string name="time_0">Time : 0</string>
+    <string name="time_0">Time : 0 c</string>
     <string name="counter_0">Counter : 0</string>
-    <string name="start">Start</string>
     <string name="info">Выберите Размер и Расположение кнопки</string>
+    <string name="start">START</string>
+    <string name="click_0">Click : 0</string>
 </resources>
