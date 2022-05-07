@@ -130,15 +130,13 @@ public class MainActivity extends AppCompatActivity {
         if (size.equals("big")) {
         k.height = 1000;
         k.width = 1000;
-        click.setLayoutParams(k);
         } else {
             if (size.equals("small")) {
                 k.height = 500;
                 k.width = 500;
-                click.setLayoutParams(k);
             }
         }
-
+        click.setLayoutParams(k);
         if (position.equals("left")) {
 
         l.setGravity(Gravity.LEFT);
