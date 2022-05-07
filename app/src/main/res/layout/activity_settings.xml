@@ -4,57 +4,185 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingsActivity"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:padding="20dp"
+    tools:context=".SettingsActivity">
 
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="352dp"
-        android:layout_height="30dp"
+        android:layout_height="40dp"
         android:gravity="center"
         android:text="@string/info"
-        android:textSize="15sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
-        android:id="@+id/bigRight"
-        android:layout_width="176dp"
-        android:layout_height="350dp"
-        android:contentDescription="@string/todo"
+        android:id="@+id/back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginEnd="160dp"
+        android:background="@drawable/back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints,SpeakableTextPresentCheck,TouchTargetSizeCheck,DuplicateClickableBoundsCheck,ImageContrastCheck,DuplicateSpeakableTextCheck" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="SpeakableTextPresentCheck"
+        android:contentDescription="@string/todo" />
 
-    <ImageButton
-        android:id="@+id/smallRight"
-        android:layout_width="176dp"
-        android:layout_height="350dp"
-        android:layout_marginTop="30dp"
-        android:contentDescription="@string/todo"
+    <RadioGroup
+        android:id="@+id/colorGroup"
+        android:layout_width="392dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints,TouchTargetSizeCheck,SpeakableTextPresentCheck,ImageContrastCheck" />
-
-    <ImageButton
-        android:id="@+id/bigLeft"
-        android:layout_width="176dp"
-        android:layout_height="350dp"
-        android:contentDescription="@string/todo"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints,SpeakableTextPresentCheck,TouchTargetSizeCheck,ImageContrastCheck" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        tools:ignore="MissingConstraints">
 
-    <ImageButton
-        android:id="@+id/smallLeft"
-        android:layout_width="176dp"
-        android:layout_height="350dp"
-        android:layout_marginTop="30dp"
-        android:contentDescription="@string/todo"
+        <RadioButton
+            android:id="@+id/radio_black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_weight="1"
+            android:text="@string/black"
+            android:textColor="@color/black"
+            android:onClick="onColor"/>
+
+        <RadioButton
+            android:id="@+id/radio_grey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_weight="1"
+            android:text="@string/grey"
+            android:textColor="@color/black"
+            android:onClick="onColor"/>
+
+        <RadioButton
+            android:id="@+id/radio_white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_weight="1"
+            android:text="@string/white"
+            android:textColor="@color/black"
+            android:onClick="onColor"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="392dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/color"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints,SpeakableTextPresentCheck,TouchTargetSizeCheck,DuplicateClickableBoundsCheck,ImageContrastCheck" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="392dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/size"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/colorGroup"
+        tools:ignore="MissingConstraints" />
+
+    <RadioGroup
+        android:id="@+id/sizeGroup"
+        android:layout_width="362dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        tools:ignore="MissingConstraints">
+
+        <RadioButton
+            android:id="@+id/big"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/big"
+            android:textColor="@color/black"
+            android:onClick="onSize"/>
+
+        <RadioButton
+            android:id="@+id/small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/small"
+            android:textColor="@color/black"
+            android:checked="true"
+            android:onClick="onSize"/>
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="393dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/position"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sizeGroup"
+        android:textStyle="bold"
+        android:textAlignment="center"/>
+
+    <RadioGroup
+        android:id="@+id/positionGroup"
+        android:layout_width="362dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        tools:ignore="MissingConstraints">
+
+        <RadioButton
+            android:id="@+id/right"
+            android:layout_width="113dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/right"
+            android:textColor="@color/black"
+            android:checked="true"
+            android:onClick="onPosition"/>
+
+        <RadioButton
+            android:id="@+id/left"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/left"
+            android:textColor="@color/black"
+            android:onClick="onPosition"/>
+    </RadioGroup>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
