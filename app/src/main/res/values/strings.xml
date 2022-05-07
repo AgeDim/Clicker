@@ -1,10 +1,21 @@
 <resources>
     <string name="app_name">Clicker</string>
     <string name="time">Time</string>
-    <string name="todo">TODO</string>
     <string name="time_0">Time : 0 c</string>
     <string name="counter_0">Counter : 0</string>
-    <string name="info">Выберите Размер и Расположение кнопки</string>
+    <string name="info">Настройки</string>
     <string name="start">START</string>
     <string name="click_0">Click : 0</string>
+    <string name="black">Black</string>
+    <string name="color">Color</string>
+    <string name="grey">Grey</string>
+    <string name="white">White</string>
+    <string name="big">Big</string>
+    <string name="small">Small</string>
+    <string name="size">Size</string>
+    <string name="todo">TODO</string>
+    <string name="right">Right</string>
+    <string name="left">Left</string>
+    <string name="position">Position</string>
+    <string name="time_0_c">Time : 0 c</string>
 </resources>

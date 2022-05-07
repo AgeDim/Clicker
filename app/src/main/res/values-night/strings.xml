@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="info">Выберите Размер и Расположение кнопки</string>
+    <string name="info">Настройки</string>
+    <string name="size">Size</string>
 </resources>
