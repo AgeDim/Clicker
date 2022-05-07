@@ -18,4 +18,7 @@
     <string name="left">Left</string>
     <string name="position">Position</string>
     <string name="time_0_c">Time : 0 c</string>
+    <string name="sqare">Square</string>
+    <string name="circle">Circle</string>
+    <string name="form">Form:</string>
 </resources>

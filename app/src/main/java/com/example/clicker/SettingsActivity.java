@@ -12,9 +12,8 @@ import android.widget.RadioGroup;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    ImageButton back;
-    Button click;
-    RadioGroup colorGroup, sizeGroup, positionGroup;
+    ImageButton back, click;
+    RadioGroup colorGroup, sizeGroup, positionGroup, formGroup;
     Intent answerIntent = new Intent();
 
     @Override
@@ -22,6 +21,7 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        formGroup = findViewById(R.id.formGroup);
         positionGroup = findViewById(R.id.positionGroup);
         sizeGroup = findViewById(R.id.sizeGroup);
         colorGroup = findViewById(R.id.colorGroup);
@@ -29,6 +29,10 @@ public class SettingsActivity extends AppCompatActivity {
         back = findViewById(R.id.back);
         back.setOnClickListener(view -> {
             setResult(RESULT_OK, answerIntent);
+            onColor(view);
+            onSize(view);
+            onPosition(view);
+            onForm(view);
             finish();
         });
 
@@ -38,11 +42,14 @@ public class SettingsActivity extends AppCompatActivity {
     public void onSize(View v) {
 
         int id = sizeGroup.getCheckedRadioButtonId();
+        sizeGroup.setEnabled(false);
         switch (id) {
             case R.id.big:
                 answerIntent.putExtra("size", "big");
+                findViewById(R.id.big).setEnabled(true);
             case R.id.small:
                 answerIntent.putExtra("size", "small");
+                findViewById(R.id.small).setEnabled(true);
         }
     }
 
@@ -50,28 +57,49 @@ public class SettingsActivity extends AppCompatActivity {
     public void onPosition(View v) {
 
         int id = positionGroup.getCheckedRadioButtonId();
+        positionGroup.setEnabled(false);
         switch (id) {
             case R.id.right:
                 answerIntent.putExtra("position", "right");
+                findViewById(R.id.right).setEnabled(true);
             case R.id.left:
                 answerIntent.putExtra("position", "left");
+                findViewById(R.id.left).setEnabled(true);
         }
     }
 
     @SuppressLint("NonConstantResourceId")
     public void onColor(View v) {
         int id = colorGroup.getCheckedRadioButtonId();
+        colorGroup.setEnabled(false);
         if (id == R.id.radio_white) {
             answerIntent.putExtra("color", "white");
+            findViewById(R.id.radio_white).setEnabled(true);
         } else {
             if (id == R.id.radio_grey) {
                 answerIntent.putExtra("color", "gray");
+                findViewById(R.id.radio_grey).setEnabled(true);
             } else {
                 if (id == R.id.radio_black) {
                     answerIntent.putExtra("color", "black");
+                    findViewById(R.id.radio_black).setEnabled(true);
                 }
             }
 
+        }
+    }
+    @SuppressLint("NonConstantResourceId")
+    public void onForm(View v) {
+        int id = formGroup.getCheckedRadioButtonId();
+        formGroup.setEnabled(false);
+        if (id == R.id.square) {
+            answerIntent.putExtra("form", "square");
+            findViewById(R.id.square).setEnabled(true);
+        } else {
+            if (id == R.id.circle) {
+                answerIntent.putExtra("form", "circle");
+                findViewById(R.id.circle).setEnabled(true);
+            }
         }
     }
 }

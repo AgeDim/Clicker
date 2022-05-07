@@ -11,10 +11,10 @@
     <TextView
         android:id="@+id/textView2"
         android:layout_width="352dp"
-        android:layout_height="40dp"
+        android:layout_height="35dp"
         android:gravity="center"
         android:text="@string/info"
-        android:textSize="30sp"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,9 +50,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_weight="1"
+            android:onClick="onColor"
             android:text="@string/black"
             android:textColor="@color/black"
-            android:onClick="onColor"/>
+            android:checked="true"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <RadioButton
             android:id="@+id/radio_grey"
@@ -60,9 +62,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_weight="1"
+            android:onClick="onColor"
             android:text="@string/grey"
             android:textColor="@color/black"
-            android:onClick="onColor"/>
+            tools:ignore="TouchTargetSizeCheck" />
 
         <RadioButton
             android:id="@+id/radio_white"
@@ -70,21 +73,22 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_weight="1"
+            android:onClick="onColor"
             android:text="@string/white"
             android:textColor="@color/black"
-            android:onClick="onColor"/>
+            tools:ignore="TouchTargetSizeCheck" />
 
     </RadioGroup>
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="392dp"
-        android:layout_height="28dp"
+        android:layout_height="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:text="@string/color"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -94,12 +98,12 @@
     <TextView
         android:id="@+id/textView4"
         android:layout_width="392dp"
-        android:layout_height="28dp"
+        android:layout_height="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:text="@string/size"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -123,33 +127,36 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="onSize"
             android:text="@string/big"
             android:textColor="@color/black"
-            android:onClick="onSize"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:checked="true"/>
 
         <RadioButton
             android:id="@+id/small"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="onSize"
             android:text="@string/small"
             android:textColor="@color/black"
-            android:onClick="onSize"/>
+            tools:ignore="TouchTargetSizeCheck" />
     </RadioGroup>
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="393dp"
-        android:layout_height="28dp"
+        android:layout_height="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:text="@string/position"
-        android:textSize="20sp"
+        android:textAlignment="center"
+        android:textSize="17sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sizeGroup"
-        android:textStyle="bold"
-        android:textAlignment="center"/>
+        app:layout_constraintTop_toBottomOf="@+id/sizeGroup" />
 
     <RadioGroup
         android:id="@+id/positionGroup"
@@ -168,18 +175,68 @@
             android:layout_width="113dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="onPosition"
             android:text="@string/right"
+            android:checked="true"
             android:textColor="@color/black"
-            android:onClick="onPosition"/>
+            tools:ignore="TouchTargetSizeCheck" />
 
         <RadioButton
             android:id="@+id/left"
             android:layout_width="135dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="onPosition"
             android:text="@string/left"
             android:textColor="@color/black"
-            android:onClick="onPosition"/>
+            tools:ignore="TouchTargetSizeCheck" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="392dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/form"
+        android:textAlignment="center"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/positionGroup" />
+
+    <RadioGroup
+        android:id="@+id/formGroup"
+        android:layout_width="362dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:orientation="horizontal"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        tools:ignore="MissingConstraints">
+
+        <RadioButton
+            android:id="@+id/square"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/sqare"
+            android:checked="true"
+            android:textColor="@color/black"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <RadioButton
+            android:id="@+id/circle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/circle"
+            android:textColor="@color/black"
+            tools:ignore="TouchTargetSizeCheck" />
     </RadioGroup>
 
 

@@ -2,16 +2,11 @@ package com.example.clicker;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.ColorFilter;
-import android.graphics.ColorMatrix;
-import android.graphics.ColorMatrixColorFilter;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -23,16 +18,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.io.Serializable;
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     TextView counter, time;
-    ImageButton settings;
-    Button click, startBtn;
+    ImageButton click,settings;
+    Button startBtn;
     Handler customHandler = new Handler();
     LinearLayout l;
 
@@ -112,6 +104,12 @@ public class MainActivity extends AppCompatActivity {
         String color = data.getExtras().getString("color");
         String size = data.getExtras().getString("size");
         String position = data.getExtras().getString("position");
+        String form = data.getExtras().getString("form");
+        ViewGroup.LayoutParams k = click.getLayoutParams();
+        if(form.equals("circle")){
+        click.setBackgroundResource(R.drawable.cycle_button);
+            click.setLayoutParams(k);
+        }
         if (color.equals("white")) {
             click.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.white));
             findViewById(R.id.click).getBackground().setColorFilter(Color.parseColor("#EDECE6"), PorterDuff.Mode.MULTIPLY);
@@ -126,10 +124,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
-        ViewGroup.LayoutParams k = click.getLayoutParams();
+
         if (size.equals("big")) {
-        k.height = 1000;
-        k.width = 1000;
+            k.height = 1000;
+            k.width = 1000;
         } else {
             if (size.equals("small")) {
                 k.height = 500;
@@ -139,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
         click.setLayoutParams(k);
         if (position.equals("left")) {
 
-        l.setGravity(Gravity.LEFT);
+            l.setGravity(Gravity.LEFT);
         } else {
             if (position.equals("right")) {
                 l.setGravity(Gravity.RIGHT);
