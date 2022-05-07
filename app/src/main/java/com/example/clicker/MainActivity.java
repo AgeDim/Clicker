@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     ImageButton settings;
     Button click, startBtn;
     Handler customHandler = new Handler();
+    LinearLayout l;
 
     int c = 0;
     long startTime = 0L, timeMilliseconds = 0L, timeSwapBuff = 0L, updateTime = 0L;
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        l = findViewById(R.id.buttonlayout);
         time = findViewById(R.id.time);
         counter = findViewById(R.id.counter);
         settings = findViewById(R.id.settings);
@@ -125,20 +126,19 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
+        ViewGroup.LayoutParams k = click.getLayoutParams();
         if (size.equals("big")) {
-        ViewGroup.LayoutParams l = click.getLayoutParams();
-        l.height = 100;
-        l.width = 100;
-        click.setLayoutParams(l);
+        k.height = 1000;
+        k.width = 1000;
+        click.setLayoutParams(k);
         } else {
             if (size.equals("small")) {
-                ViewGroup.LayoutParams l = click.getLayoutParams();
-                l.height = 50;
-                l.width = 50;
-                click.setLayoutParams(l);
+                k.height = 500;
+                k.width = 500;
+                click.setLayoutParams(k);
             }
         }
-        LinearLayout l = findViewById(R.id.buttonlayout);
+
         if (position.equals("left")) {
 
         l.setGravity(Gravity.LEFT);
