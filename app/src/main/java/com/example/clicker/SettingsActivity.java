@@ -42,7 +42,7 @@ public class SettingsActivity extends AppCompatActivity {
             case R.id.big:
                 answerIntent.putExtra("size", "big");
             case R.id.small:
-                answerIntent.putExtra("color", "small");
+                answerIntent.putExtra("size", "small");
         }
     }
 

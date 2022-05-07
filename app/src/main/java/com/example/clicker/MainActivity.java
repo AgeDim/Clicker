@@ -2,6 +2,7 @@ package com.example.clicker;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 
 import android.annotation.SuppressLint;
@@ -17,8 +18,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.view.Gravity;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.io.Serializable;
@@ -98,11 +103,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @SuppressLint("RtlHardcoded")
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         String color = data.getExtras().getString("color");
+        String size = data.getExtras().getString("size");
+        String position = data.getExtras().getString("position");
         if (color.equals("white")) {
             click.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.white));
             findViewById(R.id.click).getBackground().setColorFilter(Color.parseColor("#EDECE6"), PorterDuff.Mode.MULTIPLY);
@@ -111,20 +119,33 @@ public class MainActivity extends AppCompatActivity {
                 click.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.gray));
                 findViewById(R.id.click).getBackground().setColorFilter(Color.GRAY, PorterDuff.Mode.MULTIPLY);
             } else {
-                if(color.equals("black")){
-                click.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.black));
-                findViewById(R.id.click).getBackground().setColorFilter(Color.BLACK, PorterDuff.Mode.MULTIPLY);}
+                if (color.equals("black")) {
+                    click.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.black));
+                    findViewById(R.id.click).getBackground().setColorFilter(Color.BLACK, PorterDuff.Mode.MULTIPLY);
+                }
             }
         }
-//            switch (data.getStringExtra("position")){
-//                case "white":click.setBackgroundColor(Color.parseColor("#FCFCFC"));
-//                case "gray":click.setBackgroundColor(Color.parseColor("#808080"));
-//                case "black":click.setBackgroundColor(Color.parseColor("#010101"));
-//            }
-//            switch (data.getStringExtra("size")){
-//                case "white":click.setBackgroundColor(Color.parseColor("#FCFCFC"));
-//                case "gray":click.setBackgroundColor(Color.parseColor("#808080"));
-//                case "black":click.setBackgroundColor(Color.parseColor("#010101"));
-//            }
+        if (size.equals("big")) {
+        ViewGroup.LayoutParams l = click.getLayoutParams();
+        l.height = 100;
+        l.width = 100;
+        click.setLayoutParams(l);
+        } else {
+            if (size.equals("small")) {
+                ViewGroup.LayoutParams l = click.getLayoutParams();
+                l.height = 50;
+                l.width = 50;
+                click.setLayoutParams(l);
+            }
+        }
+        LinearLayout l = findViewById(R.id.buttonlayout);
+        if (position.equals("left")) {
+
+        l.setGravity(Gravity.LEFT);
+        } else {
+            if (position.equals("right")) {
+                l.setGravity(Gravity.RIGHT);
+            }
+        }
     }
 }
