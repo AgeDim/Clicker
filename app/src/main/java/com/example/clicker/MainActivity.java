@@ -8,7 +8,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,6 +15,7 @@ import android.os.SystemClock;
 import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     Button startBtn;
     Handler customHandler = new Handler();
     LinearLayout l;
+    ViewGroup.LayoutParams last;
 
     int c = 0;
     long startTime = 0L, timeMilliseconds = 0L, timeSwapBuff = 0L, updateTime = 0L;
@@ -43,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
             customHandler.postDelayed(this, 0);
         }
     };
-
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @SuppressLint({"SetTextI18n", "DefaultLocale"})
     @Override
@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         counter = findViewById(R.id.counter);
         settings = findViewById(R.id.settings);
         click = findViewById(R.id.click);
+        last = click.getLayoutParams();
         startBtn = findViewById(R.id.start);
         final long[] start = new long[1];
         startBtn.setEnabled(true);
@@ -105,42 +106,39 @@ public class MainActivity extends AppCompatActivity {
         String size = data.getExtras().getString("size");
         String position = data.getExtras().getString("position");
         String form = data.getExtras().getString("form");
-        ViewGroup.LayoutParams k = click.getLayoutParams();
         if(form.equals("circle")){
-        click.setBackgroundResource(R.drawable.cycle_button);
-            click.setLayoutParams(k);
-        }
-        if (color.equals("white")) {
-            click.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.white));
-            findViewById(R.id.click).getBackground().setColorFilter(Color.parseColor("#EDECE6"), PorterDuff.Mode.MULTIPLY);
-        } else {
-            if (color.equals("gray")) {
-                click.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.gray));
-                findViewById(R.id.click).getBackground().setColorFilter(Color.GRAY, PorterDuff.Mode.MULTIPLY);
-            } else {
-                if (color.equals("black")) {
-                    click.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.black));
-                    findViewById(R.id.click).getBackground().setColorFilter(Color.BLACK, PorterDuff.Mode.MULTIPLY);
-                }
+                if(color.equals("white"))click.setBackgroundResource(R.drawable.whitecircle);
+            if(color.equals("gray"))click.setBackgroundResource(R.drawable.graycircle);
+            if(color.equals("black"))click.setBackgroundResource(R.drawable.blackcircle);
             }
-        }
-
+        else{
+        if(color.equals("white"))click.setBackgroundResource(R.drawable.whitesquare);
+            if(color.equals("gray"))click.setBackgroundResource(R.drawable.graysquare);
+            if(color.equals("black"))click.setBackgroundResource(R.drawable.blacksquare);
+            }
+        ViewGroup.LayoutParams k = click.getLayoutParams();
         if (size.equals("big")) {
-            k.height = 1000;
-            k.width = 1000;
+            k.height = 530;
+            k.width = 530;
         } else {
             if (size.equals("small")) {
-                k.height = 500;
-                k.width = 500;
+                k.height = 280;
+                k.width = 280;
             }
         }
         click.setLayoutParams(k);
         if (position.equals("left")) {
-
             l.setGravity(Gravity.LEFT);
+//            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(l.getWidth(), l.getHeight());
+//            params.gravity = Gravity.LEFT;
+//            l.setLayoutParams(params);
         } else {
             if (position.equals("right")) {
                 l.setGravity(Gravity.RIGHT);
+//                FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(l.getWidth(), l.getHeight());
+//                params.gravity = Gravity.RIGHT;
+//                l.setLayoutParams(params);
+
             }
         }
     }

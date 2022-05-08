@@ -50,7 +50,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_weight="1"
-            android:onClick="onColor"
             android:text="@string/black"
             android:textColor="@color/black"
             android:checked="true"
@@ -62,7 +61,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_weight="1"
-            android:onClick="onColor"
             android:text="@string/grey"
             android:textColor="@color/black"
             tools:ignore="TouchTargetSizeCheck" />
@@ -73,7 +71,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_weight="1"
-            android:onClick="onColor"
             android:text="@string/white"
             android:textColor="@color/black"
             tools:ignore="TouchTargetSizeCheck" />
@@ -127,7 +124,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="onSize"
             android:text="@string/big"
             android:textColor="@color/black"
             tools:ignore="TouchTargetSizeCheck"
@@ -138,7 +134,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="onSize"
             android:text="@string/small"
             android:textColor="@color/black"
             tools:ignore="TouchTargetSizeCheck" />
@@ -175,7 +170,6 @@
             android:layout_width="113dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="onPosition"
             android:text="@string/right"
             android:checked="true"
             android:textColor="@color/black"
@@ -186,7 +180,6 @@
             android:layout_width="135dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="onPosition"
             android:text="@string/left"
             android:textColor="@color/black"
             tools:ignore="TouchTargetSizeCheck" />
