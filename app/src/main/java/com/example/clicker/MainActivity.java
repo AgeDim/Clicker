@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             int secs = (int) (updateTime / 1000);
             secs %= 60;
             int milliseconds = (int) (updateTime % 1000);
-            time.setText("Time : " + String.format("%2d", secs) + ":" + String.format("%3d", milliseconds) + " c");
+            time.setText("Время : " + String.format("%2d", secs) + ":" + String.format("%3d", milliseconds) + " c");
             customHandler.postDelayed(this, 0);
         }
     };
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         startBtn.setOnClickListener(view -> {
             startBtn.setEnabled(false);
             click.setEnabled(true);
-            time.setText("Time : 0 c");
+            time.setText("Время : 0 c");
 
         });
         click.setOnClickListener(view -> {
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 startBtn.setEnabled(true);
                 click.setEnabled(false);
             }
-            counter.setText("Click : " + c);
+            counter.setText("Клик : " + c);
             c++;
         });
         settings.setOnClickListener(view -> {
