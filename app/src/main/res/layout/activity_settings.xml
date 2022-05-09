@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context=".SettingsActivity">
+    tools:context=".SettingsActivity"
+    android:background="@color/white_for_back">
 
     <TextView
         android:id="@+id/textView2"
@@ -15,6 +16,7 @@
         android:gravity="center"
         android:text="@string/info"
         android:textSize="25sp"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,6 +47,7 @@
         tools:ignore="MissingConstraints">
 
         <RadioButton
+            android:buttonTint="@color/black"
             android:id="@+id/radio_black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -56,6 +59,7 @@
             tools:ignore="TouchTargetSizeCheck" />
 
         <RadioButton
+            android:buttonTint="@color/black"
             android:id="@+id/radio_grey"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -66,6 +70,7 @@
             tools:ignore="TouchTargetSizeCheck" />
 
         <RadioButton
+            android:buttonTint="@color/black"
             android:id="@+id/radio_white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -120,6 +125,7 @@
         tools:ignore="MissingConstraints">
 
         <RadioButton
+            android:buttonTint="@color/black"
             android:id="@+id/big"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -130,6 +136,7 @@
             android:checked="true"/>
 
         <RadioButton
+            android:buttonTint="@color/black"
             android:id="@+id/small"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -154,6 +161,7 @@
         app:layout_constraintTop_toBottomOf="@+id/sizeGroup" />
 
     <RadioGroup
+
         android:id="@+id/positionGroup"
         android:layout_width="362dp"
         android:layout_height="wrap_content"
@@ -166,6 +174,7 @@
         tools:ignore="MissingConstraints">
 
         <RadioButton
+            android:buttonTint="@color/black"
             android:id="@+id/right"
             android:layout_width="113dp"
             android:layout_height="wrap_content"
@@ -176,6 +185,7 @@
             tools:ignore="TouchTargetSizeCheck" />
 
         <RadioButton
+            android:buttonTint="@color/black"
             android:id="@+id/left"
             android:layout_width="135dp"
             android:layout_height="wrap_content"
@@ -213,6 +223,7 @@
         tools:ignore="MissingConstraints">
 
         <RadioButton
+            android:buttonTint="@color/black"
             android:id="@+id/square"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -223,6 +234,7 @@
             tools:ignore="TouchTargetSizeCheck" />
 
         <RadioButton
+            android:buttonTint="@color/black"
             android:id="@+id/circle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

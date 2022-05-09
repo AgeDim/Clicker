@@ -6,7 +6,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RadioGroup;
 
@@ -43,13 +42,12 @@ public class SettingsActivity extends AppCompatActivity {
 
         int id = sizeGroup.getCheckedRadioButtonId();
         sizeGroup.setEnabled(false);
-        switch (id) {
-            case R.id.big:
-                answerIntent.putExtra("size", "big");
-                findViewById(R.id.big).setEnabled(true);
-            case R.id.small:
+        if (id == R.id.big) {
+            answerIntent.putExtra("size", "big");
+        } else {
+            if (id == R.id.small) {
                 answerIntent.putExtra("size", "small");
-                findViewById(R.id.small).setEnabled(true);
+            }
         }
     }
 
@@ -57,14 +55,13 @@ public class SettingsActivity extends AppCompatActivity {
     public void onPosition(View v) {
 
         int id = positionGroup.getCheckedRadioButtonId();
-        positionGroup.setEnabled(false);
-        switch (id) {
-            case R.id.right:
-                answerIntent.putExtra("position", "right");
-                findViewById(R.id.right).setEnabled(true);
-            case R.id.left:
+        if (id == R.id.right) {
+            answerIntent.putExtra("position", "right");
+        } else {
+            if (id == R.id.left) {
                 answerIntent.putExtra("position", "left");
-                findViewById(R.id.left).setEnabled(true);
+            }
+
         }
     }
 
@@ -88,6 +85,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         }
     }
+
     @SuppressLint("NonConstantResourceId")
     public void onForm(View v) {
         int id = formGroup.getCheckedRadioButtonId();
