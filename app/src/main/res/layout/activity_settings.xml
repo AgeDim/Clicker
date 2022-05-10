@@ -55,12 +55,11 @@
             android:layout_weight="1"
             android:text="@string/black"
             android:textColor="@color/black"
-            android:checked="true"
             tools:ignore="TouchTargetSizeCheck" />
 
         <RadioButton
             android:buttonTint="@color/black"
-            android:id="@+id/radio_grey"
+            android:id="@+id/radio_gray"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -134,8 +133,7 @@
             android:layout_weight="1"
             android:text="@string/big"
             android:textColor="@color/black"
-            tools:ignore="TouchTargetSizeCheck"
-            android:checked="true"/>
+            tools:ignore="TouchTargetSizeCheck" />
 
         <RadioButton
             android:buttonTint="@color/black"
@@ -183,7 +181,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/right"
-            android:checked="true"
             android:textColor="@color/black"
             tools:ignore="TouchTargetSizeCheck" />
 
@@ -233,7 +230,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/sqare"
-            android:checked="true"
             android:textColor="@color/black"
             tools:ignore="TouchTargetSizeCheck" />
 

@@ -7,23 +7,37 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 public class SettingsActivity extends AppCompatActivity {
 
     ImageButton back, click;
     RadioGroup colorGroup, sizeGroup, positionGroup, formGroup;
+    RadioButton white, black, gray, big, small, square, circle, left, right;
     Intent answerIntent = new Intent();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-
+        String color = getIntent().getExtras().getString("color");
+        String size = getIntent().getExtras().getString("size");
+        String position = getIntent().getExtras().getString("position");
+        String form = getIntent().getExtras().getString("form");
         formGroup = findViewById(R.id.formGroup);
+        circle = findViewById(R.id.circle);
+        square = findViewById(R.id.square);
         positionGroup = findViewById(R.id.positionGroup);
+        left = findViewById(R.id.left);
+        right = findViewById(R.id.right);
         sizeGroup = findViewById(R.id.sizeGroup);
+        big = findViewById(R.id.big);
+        small = findViewById(R.id.small);
         colorGroup = findViewById(R.id.colorGroup);
+        white = findViewById(R.id.radio_white);
+        black = findViewById(R.id.radio_black);
+        gray = findViewById(R.id.radio_gray);
         click = findViewById(R.id.click);
         back = findViewById(R.id.back);
         back.setOnClickListener(view -> {
@@ -34,7 +48,41 @@ public class SettingsActivity extends AppCompatActivity {
             onForm(view);
             finish();
         });
-
+        switch(color){
+            case "white":
+                white.setChecked(true);
+                break;
+            case "gray":
+                gray.setChecked(true);
+                break;
+            case "black":
+                black.setChecked(true);
+                break;
+        }
+        switch (size){
+            case "big":
+                big.setChecked(true);
+                break;
+            case "small":
+                small.setChecked(true);
+                break;
+        }
+        switch (position){
+            case "right":
+                right.setChecked(true);
+                break;
+            case "left":
+                left.setChecked(true);
+                break;
+        }
+        switch (form){
+            case "circle":
+                circle.setChecked(true);
+                break;
+            case "square":
+                square.setChecked(true);
+                break;
+        }
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -73,9 +121,9 @@ public class SettingsActivity extends AppCompatActivity {
             answerIntent.putExtra("color", "white");
             findViewById(R.id.radio_white).setEnabled(true);
         } else {
-            if (id == R.id.radio_grey) {
+            if (id == R.id.radio_gray) {
                 answerIntent.putExtra("color", "gray");
-                findViewById(R.id.radio_grey).setEnabled(true);
+                findViewById(R.id.radio_gray).setEnabled(true);
             } else {
                 if (id == R.id.radio_black) {
                     answerIntent.putExtra("color", "black");

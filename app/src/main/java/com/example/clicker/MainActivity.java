@@ -24,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
     Handler customHandler = new Handler();
     LinearLayout l;
     ViewGroup.LayoutParams last;
+    String color = "black";
+    String size = "big";
+    String position = "right";
+    String form = "square";
 
     int c = 0;
     long startTime = 0L, timeMilliseconds = 0L, timeSwapBuff = 0L, updateTime = 0L;
@@ -87,6 +91,10 @@ public class MainActivity extends AppCompatActivity {
         settings.setOnClickListener(view -> {
             Intent intent;
             intent = new Intent(MainActivity.this, SettingsActivity.class);
+            intent.putExtra("color" , color);
+            intent.putExtra("size" , size);
+            intent.putExtra("position" , position);
+            intent.putExtra("form" , form);
             startActivityForResult(intent, 0);
         });
 
@@ -98,10 +106,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        String color = data.getExtras().getString("color");
-        String size = data.getExtras().getString("size");
-        String position = data.getExtras().getString("position");
-        String form = data.getExtras().getString("form");
+        color = data.getExtras().getString("color");
+        size = data.getExtras().getString("size");
+        position = data.getExtras().getString("position");
+        form = data.getExtras().getString("form");
         if(form.equals("circle")){
                 if(color.equals("white"))click.setBackgroundResource(R.drawable.whitecircle);
             if(color.equals("gray"))click.setBackgroundResource(R.drawable.graycircle);
